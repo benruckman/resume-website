@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ChevronUp, Github, Linkedin, Mail } from 'lucide-react';
+import { ChevronUp, GitHub, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Footer = () => {
@@ -26,7 +26,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
             >
-              <Github className="h-5 w-5" />
+              <GitHub className="h-5 w-5" />
               <span className="sr-only">GitHub</span>
             </a>
             <a 

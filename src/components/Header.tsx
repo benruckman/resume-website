@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, Menu, Moon, Sun } from 'lucide-react';
+import { GitHub, Linkedin, Mail, Menu, Moon, Sun } from 'lucide-react';
 import { 
   Sheet, 
   SheetContent, 
@@ -11,11 +10,9 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
   const isMobile = useIsMobile();
-  // Set dark mode as default
   const [darkMode, setDarkMode] = React.useState(true);
 
   React.useEffect(() => {
-    // Apply dark mode on initial load
     document.documentElement.classList.add('dark');
   }, []);
 
@@ -82,7 +79,7 @@ const Header = () => {
             <div className="flex items-center gap-2 ml-2">
               <a href="https://github.com/benruckman" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon">
-                  <Github className="h-5 w-5" />
+                  <GitHub className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </a>

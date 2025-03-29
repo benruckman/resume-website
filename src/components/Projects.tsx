@@ -1,8 +1,7 @@
-
 import React from 'react';
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, GitBranch, ExternalLink } from 'lucide-react';
+import { Calendar, GitHub, ExternalLink } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 interface Project {
@@ -102,7 +101,7 @@ const Projects = () => {
                     {project.repoLink && (
                       <a href={project.repoLink} target="_blank" rel="noopener noreferrer">
                         <Button variant="outline" size="sm" className="flex items-center gap-1">
-                          <Github className="h-4 w-4" />
+                          <GitHub className="h-4 w-4" />
                           <span>Code</span>
                         </Button>
                       </a>
@@ -122,7 +121,6 @@ const Projects = () => {
             </Card>
           ))}
 
-          {/* Project placeholder */}
           <Card className="h-full border border-dashed border-border/60 flex items-center justify-center p-6 bg-secondary/20">
             <div className="text-center text-muted-foreground">
               <GitBranch className="h-10 w-10 mx-auto mb-4" />

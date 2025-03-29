@@ -2,7 +2,7 @@
 
 ## Project info
 
-https://dev-profile-plant.lovable.app/
+https://ben-ruckman.lovable.app/
 
 **URL**: https://lovable.dev/projects/daab6841-a38b-41e4-b9b7-74c05cfaa472
 

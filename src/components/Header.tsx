@@ -11,7 +11,13 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const Header = () => {
   const isMobile = useIsMobile();
-  const [darkMode, setDarkMode] = React.useState(false);
+  // Set dark mode as default
+  const [darkMode, setDarkMode] = React.useState(true);
+
+  React.useEffect(() => {
+    // Apply dark mode on initial load
+    document.documentElement.classList.add('dark');
+  }, []);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);

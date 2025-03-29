@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { GitHub, Linkedin, Mail, Menu, Moon, Sun } from 'lucide-react';
+import { Github, Linkedin, Mail, Menu, Moon, Sun } from 'lucide-react';
 import { 
   Sheet, 
   SheetContent, 
@@ -79,7 +79,7 @@ const Header = () => {
             <div className="flex items-center gap-2 ml-2">
               <a href="https://github.com/benruckman" target="_blank" rel="noopener noreferrer">
                 <Button variant="ghost" size="icon">
-                  <GitHub className="h-5 w-5" />
+                  <Github className="h-5 w-5" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </a>

@@ -23,7 +23,7 @@ const Hero = () => {
               </p>
               <p className="text-muted-foreground text-lg max-w-2xl mt-2">
                 Did I make this website with lovable.dev in 10 minutes? Yes. I
-                guess I'm a vide coder now.
+                guess I'm a vibe coder now.
               </p>
             </div>
 
@@ -77,13 +77,10 @@ const Hero = () => {
           <div className="flex-shrink-0 border-2 border-primary/20 rounded-full p-1 bg-secondary/50">
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-background">
               <img
-                src={"public/lovable-uploads/profile-pic.png"}
+                src={"/public/lovable-uploads/profile-pic.png"}
                 alt={`Profile Picture`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform"
               />
-              {/* <div className="w-full h-full bg-primary/10 flex items-center justify-center text-5xl font-bold text-primary">
-                BR
-              </div> */}
             </div>
           </div>
         </div>

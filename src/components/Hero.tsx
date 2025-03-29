@@ -77,7 +77,7 @@ const Hero = () => {
           <div className="flex-shrink-0 border-2 border-primary/20 rounded-full p-1 bg-secondary/50">
             <div className="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-background">
               <img
-                src={"/public/lovable-uploads/profile-pic.png"}
+                src={"/lovable-uploads/profile-pic.png"}
                 alt={`Profile Picture`}
                 className="w-full h-full object-cover hover:scale-105 transition-transform"
               />

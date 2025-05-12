@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, Menu, Moon, Sun } from 'lucide-react';
@@ -7,6 +8,7 @@ import {
   SheetTrigger 
 } from "@/components/ui/sheet";
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const isMobile = useIsMobile();
@@ -22,12 +24,13 @@ const Header = () => {
   };
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Skills', href: '#skills' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Education', href: '#education' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'About', href: '/#about' },
+    { label: 'Experience', href: '/#experience' },
+    { label: 'Skills', href: '/#skills' },
+    { label: 'Projects', href: '/#projects' },
+    { label: 'Education', href: '/#education' },
+    { label: 'Contact', href: '/#contact' },
+    { label: 'Resume', href: '/resume' },
   ];
 
   const MobileMenu = () => (
@@ -41,13 +44,23 @@ const Header = () => {
       <SheetContent side="right" className="w-[300px] sm:w-[400px]">
         <nav className="flex flex-col gap-4 mt-8">
           {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-lg font-medium px-2 py-1 rounded hover:bg-secondary transition-colors"
-            >
-              {item.label}
-            </a>
+            item.href.startsWith('/#') ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-lg font-medium px-2 py-1 rounded hover:bg-secondary transition-colors"
+              >
+                {item.label}
+              </a>
+            ) : (
+              <Link
+                key={item.href}
+                to={item.href}
+                className="text-lg font-medium px-2 py-1 rounded hover:bg-secondary transition-colors"
+              >
+                {item.label}
+              </Link>
+            )
           ))}
         </nav>
       </SheetContent>
@@ -58,23 +71,33 @@ const Header = () => {
     <header className="sticky top-0 z-40 border-b bg-background/80 backdrop-blur-sm">
       <div className="container-custom flex h-16 items-center justify-between">
         <div className="font-mono font-bold text-xl">
-          <a href="#" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="text-primary">&lt;</span>
             <span>Ben.dev</span>
             <span className="text-primary">/&gt;</span>
-          </a>
+          </Link>
         </div>
         
         {!isMobile ? (
           <nav className="flex items-center gap-6">
             {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium hover:text-primary transition-colors"
-              >
-                {item.label}
-              </a>
+              item.href.startsWith('/#') ? (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm font-medium hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  className="text-sm font-medium hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
             <div className="flex items-center gap-2 ml-2">
               <a href="https://github.com/benruckman" target="_blank" rel="noopener noreferrer">

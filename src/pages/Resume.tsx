@@ -23,16 +23,16 @@ const Resume = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col h-screen">
       <Header />
-      <main className="flex-grow container-custom py-8">
-        <div className="flex flex-col items-center space-y-4 w-full max-w-5xl mx-auto">
-          <div className="flex flex-col items-center space-y-2">
+      <main className="flex-1 w-full overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <div className="flex flex-col items-center mb-4">
             <h1 className="text-3xl font-bold">Resume</h1>
             <p className="text-muted-foreground">View or download my professional resume</p>
           </div>
 
-          <div className="flex flex-wrap gap-4 justify-center">
+          <div className="flex flex-wrap gap-4 justify-center mb-4">
             <Button onClick={handleDownload} className="flex items-center gap-2">
               <Download className="h-4 w-4" />
               Download Resume
@@ -48,11 +48,12 @@ const Resume = () => {
           </div>
 
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background">
-            <div className="relative w-full h-[calc(100vh-200px)] min-h-[800px]">
+            <div className="w-full" style={{ height: "calc(100vh - 250px)" }}>
               <iframe 
                 src={pdfUrl}
                 title="Ben Ruckman Resume"
-                className="absolute top-0 left-0 w-full h-full"
+                className="w-full h-full"
+                style={{ border: 'none' }}
               />
             </div>
           </div>

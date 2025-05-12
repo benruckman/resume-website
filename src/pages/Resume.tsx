@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Download, FileText } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { toast } from "@/components/ui/sonner";
+import { toast } from "sonner";
 
 const Resume = () => {
-  const pdfUrl = '/lovable-uploads/Ben Ruckman.pdf';
+  const pdfUrl = '/lovable-uploads/ben-ruckman.pdf';
 
   const handleDownload = () => {
     // Create a direct link to the PDF file

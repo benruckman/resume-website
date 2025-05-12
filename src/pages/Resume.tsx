@@ -26,7 +26,7 @@ const Resume = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow container-custom py-12">
-        <div className="flex flex-col items-center space-y-6">
+        <div className="flex flex-col items-center space-y-6 w-full max-w-5xl mx-auto">
           <div className="flex flex-col items-center space-y-2">
             <h1 className="text-3xl font-bold">Resume</h1>
             <p className="text-muted-foreground">View or download my professional resume</p>
@@ -37,14 +37,18 @@ const Resume = () => {
               <Download className="h-4 w-4" />
               Download Resume
             </Button>
-            <Button variant="outline" as="a" href={pdfUrl} target="_blank" className="flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              onClick={() => window.open(pdfUrl, '_blank')}
+              className="flex items-center gap-2"
+            >
               <FileText className="h-4 w-4" />
               Open in New Tab
             </Button>
           </div>
 
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background">
-            <div className="relative w-full h-[calc(100vh-300px)] min-h-[500px]">
+            <div className="relative w-full h-[calc(100vh-300px)] min-h-[600px]">
               <iframe 
                 src={pdfUrl}
                 title="Ben Ruckman Resume"

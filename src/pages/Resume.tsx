@@ -23,9 +23,9 @@ const Resume = () => {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-1 w-full overflow-hidden">
+      <main className="flex-1 w-full overflow-hidden pb-16"> {/* Added padding bottom to create space for footer */}
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex flex-col items-center mb-4">
             <h1 className="text-3xl font-bold">Resume</h1>
@@ -47,8 +47,8 @@ const Resume = () => {
             </Button>
           </div>
 
-          <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background">
-            <div className="w-full" style={{ height: "calc(100vh - 250px)" }}>
+          <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8"> {/* Added margin bottom */}
+            <div className="w-full" style={{ height: "calc(100vh - 300px)" }}> {/* Reduced height to account for footer */}
               <iframe 
                 src={pdfUrl}
                 title="Ben Ruckman Resume"

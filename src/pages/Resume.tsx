@@ -8,12 +8,13 @@ import { toast } from "sonner";
 
 const Resume = () => {
   const pdfUrl = '/lovable-uploads/ben-ruckman.pdf';
+  const pdfFileName = 'Ben_Ruckman_Resume.pdf'; // Clean filename without "Microsoft Word"
 
   const handleDownload = () => {
     // Create a direct link to the PDF file
     const link = document.createElement('a');
     link.href = pdfUrl;
-    link.download = 'Ben Ruckman - Resume.pdf';
+    link.download = pdfFileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);

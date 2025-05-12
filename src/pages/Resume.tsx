@@ -25,8 +25,8 @@ const Resume = () => {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
-      <main className="flex-grow container-custom py-12">
-        <div className="flex flex-col items-center space-y-6 w-full max-w-5xl mx-auto">
+      <main className="flex-grow container-custom py-8">
+        <div className="flex flex-col items-center space-y-4 w-full max-w-5xl mx-auto">
           <div className="flex flex-col items-center space-y-2">
             <h1 className="text-3xl font-bold">Resume</h1>
             <p className="text-muted-foreground">View or download my professional resume</p>
@@ -48,7 +48,7 @@ const Resume = () => {
           </div>
 
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background">
-            <div className="relative w-full h-[calc(100vh-300px)] min-h-[600px]">
+            <div className="relative w-full h-[calc(100vh-200px)] min-h-[800px]">
               <iframe 
                 src={pdfUrl}
                 title="Ben Ruckman Resume"

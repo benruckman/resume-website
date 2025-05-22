@@ -5,7 +5,6 @@ import { Download, FileText } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { toast } from "sonner";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Resume = () => {
@@ -47,26 +46,6 @@ const Resume = () => {
               <FileText className="h-4 w-4" />
               Open in New Tab
             </Button>
-          </div>
-
-          <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8">
-            <ScrollArea className="w-full" style={{ height: isMobile ? "calc(100vh - 300px)" : "calc(100vh - 250px)" }}>
-              <iframe 
-                src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
-                title="Ben Ruckman Resume"
-                className="w-full h-full"
-                style={{ 
-                  border: 'none', 
-                  height: isMobile ? '220vh' : '250vh', 
-                  minHeight: isMobile ? '1500px' : '1800px',
-                  overflow: 'hidden'
-                }}
-              />
-            </ScrollArea>
-          </div>
-          
-          <div className="text-center text-sm text-muted-foreground mb-8">
-            All pages are displayed in continuous scroll view
           </div>
         </div>
       </main>

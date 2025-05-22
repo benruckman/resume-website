@@ -104,7 +104,7 @@ const Skills = () => {
           <h3 className="text-xl font-semibold mb-4">All Skills</h3>
           <div className="flex flex-wrap gap-2">
             {skills.map((skill) => (
-              <span key={skill.name} className="skill-badge">
+              <span key={skill.name} className="skill-badge bg-white dark:bg-secondary">
                 {skill.name}
               </span>
             ))}

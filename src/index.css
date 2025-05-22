@@ -101,7 +101,7 @@
   }
 
   .skill-badge {
-    @apply px-3 py-1 rounded-full text-sm font-medium bg-secondary text-foreground transition-all hover:bg-primary hover:text-primary-foreground;
+    @apply px-3 py-1 rounded-full text-sm font-medium text-foreground transition-all hover:bg-primary hover:text-primary-foreground;
   }
   
   .experience-card {

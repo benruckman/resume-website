@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
@@ -6,55 +7,51 @@ interface Skill {
   name: string;
   years: number;
   category: string;
-  level?: number;
 }
 
 const Skills = () => {
-  const maxYears = 6; // Used for normalizing skill progress bars
-
+  // Find the maximum years to normalize progress bars
   const skills: Skill[] = [
     // Programming Languages
-    { name: "TypeScript", years: 2, category: "languages", level: 85 },
-    { name: "JavaScript", years: 3, category: "languages", level: 90 },
-    { name: "Java", years: 2, category: "languages", level: 75 },
-    { name: "Python", years: 1, category: "languages", level: 65 },
-    { name: "C#", years: 3, category: "languages", level: 70 },
-    { name: "C++", years: 1, category: "languages", level: 60 },
+    { name: "TypeScript", years: 2, category: "languages" },
+    { name: "JavaScript", years: 3, category: "languages" },
+    { name: "Java", years: 2, category: "languages" },
+    { name: "Python", years: 1, category: "languages" },
+    { name: "C#", years: 3, category: "languages" },
+    { name: "C++", years: 1, category: "languages" },
 
     // Frameworks & Libraries
-    { name: "React", years: 2, category: "frameworks", level: 85 },
-    { name: "Spring Boot", years: 1, category: "frameworks", level: 70 },
-    { name: "Django", years: 1, category: "frameworks", level: 65 },
-    { name: "Linear.app", years: 2, category: "frameworks", level: 80 },
-    { name: "HTML", years: 4, category: "frameworks", level: 95 },
-    { name: "CSS", years: 4, category: "frameworks", level: 90 },
-    { name: "NextJS", years: 1, category: "frameworks", level: 65 },
-    { name: "Bubble.io", years: 4, category: "frameworks", level: 95 },
+    { name: "React", years: 2, category: "frameworks" },
+    { name: "Spring Boot", years: 1, category: "frameworks" },
+    { name: "Django", years: 1, category: "frameworks" },
+    { name: "Linear.app", years: 2, category: "frameworks" },
+    { name: "HTML", years: 4, category: "frameworks" },
+    { name: "CSS", years: 4, category: "frameworks" },
+    { name: "NextJS", years: 1, category: "frameworks" },
+    { name: "Bubble.io", years: 4, category: "frameworks" },
 
     // Cloud & DevOps
-    { name: "AWS", years: 2, category: "cloud", level: 80 },
-    { name: "Azure", years: 1, category: "cloud", level: 65 },
-    { name: "Docker", years: 2, category: "cloud", level: 85 },
-    { name: "Kubernetes", years: 1, category: "cloud", level: 70 },
-    { name: "Jenkins", years: 1, category: "cloud", level: 65 },
-    { name: "CI/CD", years: 2, category: "cloud", level: 80 },
+    { name: "AWS", years: 2, category: "cloud" },
+    { name: "Azure", years: 1, category: "cloud" },
+    { name: "Docker", years: 2, category: "cloud" },
+    { name: "Kubernetes", years: 1, category: "cloud" },
+    { name: "Jenkins", years: 1, category: "cloud" },
+    { name: "CI/CD", years: 2, category: "cloud" },
 
     // Databases
-    { name: "PostgreSQL", years: 2, category: "databases", level: 75 },
-    {
-      name: "Relational Databases",
-      years: 3,
-      category: "databases",
-      level: 85,
-    },
+    { name: "PostgreSQL", years: 2, category: "databases" },
+    { name: "Relational Databases", years: 3, category: "databases" },
 
     // Tools & Others
-    { name: "Git/GitHub", years: 3, category: "tools", level: 90 },
-    { name: "Jira", years: 2, category: "tools", level: 85 },
-    { name: "REST APIs", years: 2, category: "tools", level: 90 },
-    { name: "Agile", years: 2, category: "tools", level: 85 },
-    { name: "VSCode", years: 4, category: "tools", level: 95 },
+    { name: "Git/GitHub", years: 3, category: "tools" },
+    { name: "Jira", years: 2, category: "tools" },
+    { name: "REST APIs", years: 2, category: "tools" },
+    { name: "Agile", years: 2, category: "tools" },
+    { name: "VSCode", years: 4, category: "tools" },
   ];
+
+  // Find the maximum years to use as the 100% reference
+  const maxYears = Math.max(...skills.map(skill => skill.years));
 
   const categories = [
     { id: "languages", name: "Programming Languages" },
@@ -63,6 +60,11 @@ const Skills = () => {
     { id: "databases", name: "Databases" },
     { id: "tools", name: "Tools & Methods" },
   ];
+
+  // Calculate progress percentage based on years relative to maximum
+  const calculateProgress = (years: number): number => {
+    return (years / maxYears) * 100;
+  };
 
   return (
     <section id="skills" className="py-20 bg-secondary/50">
@@ -86,7 +88,10 @@ const Skills = () => {
                             {skill.years} {skill.years === 1 ? "Year" : "Years"}
                           </div>
                         </div>
-                        <Progress value={skill.level} className="h-2" />
+                        <Progress 
+                          value={calculateProgress(skill.years)} 
+                          className="h-2" 
+                        />
                       </CardContent>
                     </Card>
                   ))}

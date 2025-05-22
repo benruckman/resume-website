@@ -19,7 +19,7 @@ const Resume = () => {
   const pdfUrl = '/lovable-uploads/ben-ruckman.pdf';
   const pdfFileName = 'Ben_Ruckman_Resume.pdf';
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 2; // Set this to the actual number of pages in your PDF
+  const totalPages = 3; // Updated from 2 to 3 pages
   const isMobile = useIsMobile();
 
   const handleDownload = () => {

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '@/components/Header';
@@ -19,8 +20,9 @@ const Resume = () => {
   const pdfUrl = '/lovable-uploads/ben-ruckman.pdf';
   const pdfFileName = 'Ben_Ruckman_Resume.pdf';
   const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 3; // Updated from 2 to 3 pages
+  const totalPages = 3; // Total of 3 pages in the resume
   const isMobile = useIsMobile();
+  const iframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -37,12 +39,20 @@ const Resume = () => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
       
-      // Force iframe reload when changing pages on mobile
-      if (isMobile) {
-        const iframe = document.querySelector('iframe');
-        if (iframe) {
-          iframe.src = `${pdfUrl}#page=${page}`;
-        }
+      // Always force iframe reload when changing pages for more reliable page navigation
+      const iframe = iframeRef.current;
+      if (iframe) {
+        // Use src attribute directly to force a reload with the new page
+        iframe.src = `${pdfUrl}#page=${page}`;
+        
+        // For some browsers, we need to reload the iframe to ensure the page change
+        setTimeout(() => {
+          const currentSrc = iframe.src;
+          iframe.src = '';
+          setTimeout(() => {
+            iframe.src = currentSrc;
+          }, 50);
+        }, 100);
       }
       
       // Scroll back to top when changing pages
@@ -50,18 +60,16 @@ const Resume = () => {
     }
   };
 
-  // Effect to ensure PDF loads at the correct page on mobile
+  // Effect to ensure PDF loads at the correct page
   useEffect(() => {
-    if (isMobile) {
-      const iframe = document.querySelector('iframe');
-      if (iframe) {
-        // Small delay to ensure the iframe is ready
-        setTimeout(() => {
-          iframe.src = `${pdfUrl}#page=${currentPage}`;
-        }, 100);
-      }
+    const iframe = iframeRef.current;
+    if (iframe) {
+      // Small delay to ensure the iframe is ready
+      setTimeout(() => {
+        iframe.src = `${pdfUrl}#page=${currentPage}`;
+      }, 100);
     }
-  }, [currentPage, isMobile, pdfUrl]);
+  }, [currentPage, pdfUrl]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -123,6 +131,7 @@ const Resume = () => {
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8">
             <ScrollArea className="w-full" style={{ height: isMobile ? "calc(100vh - 400px)" : "calc(100vh - 300px)" }}>
               <iframe 
+                ref={iframeRef}
                 src={`${pdfUrl}#page=${currentPage}`}
                 title="Ben Ruckman Resume"
                 className="w-full h-full"

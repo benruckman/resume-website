@@ -73,6 +73,9 @@ export default {
 					java: '#007396',
 					python: '#3776AB',
 				},
+				mallow: {
+					green: '#25C87C',
+				},
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],

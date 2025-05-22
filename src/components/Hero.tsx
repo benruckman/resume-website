@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
@@ -27,7 +28,7 @@ const Hero = () => {
               </p>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a href="#experience">
                 <Button className="gap-2">
                   View My Work
@@ -36,6 +37,17 @@ const Hero = () => {
               </a>
               <a href="#contact">
                 <Button variant="outline">Contact Me</Button>
+              </a>
+              <a 
+                href="https://getmallow.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Button 
+                  className="bg-mallow-green hover:bg-mallow-green/90 text-white"
+                >
+                  Ditch the 3% invoicing fees
+                </Button>
               </a>
             </div>
 

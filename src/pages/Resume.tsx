@@ -52,13 +52,13 @@ const Resume = () => {
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8">
             <ScrollArea className="w-full" style={{ height: isMobile ? "calc(100vh - 300px)" : "calc(100vh - 250px)" }}>
               <iframe 
-                src={`${pdfUrl}#view=FitH`}
+                src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=1&view=FitH`}
                 title="Ben Ruckman Resume"
                 className="w-full h-full"
                 style={{ 
                   border: 'none', 
-                  height: isMobile ? '150vh' : '180vh', 
-                  minHeight: isMobile ? '800px' : '1000px',
+                  height: isMobile ? '220vh' : '250vh', 
+                  minHeight: isMobile ? '1500px' : '1800px',
                   overflow: 'hidden'
                 }}
               />

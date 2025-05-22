@@ -1,11 +1,11 @@
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { toast } from "sonner";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { useIsMobile } from '@/hooks/use-mobile';
 import {
   Pagination,
   PaginationContent,
@@ -20,6 +20,7 @@ const Resume = () => {
   const pdfFileName = 'Ben_Ruckman_Resume.pdf';
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = 2; // Set this to the actual number of pages in your PDF
+  const isMobile = useIsMobile();
 
   const handleDownload = () => {
     const link = document.createElement('a');
@@ -35,10 +36,32 @@ const Resume = () => {
   const handlePageChange = (page: number) => {
     if (page >= 1 && page <= totalPages) {
       setCurrentPage(page);
+      
+      // Force iframe reload when changing pages on mobile
+      if (isMobile) {
+        const iframe = document.querySelector('iframe');
+        if (iframe) {
+          iframe.src = `${pdfUrl}#page=${page}`;
+        }
+      }
+      
       // Scroll back to top when changing pages
       window.scrollTo(0, 0);
     }
   };
+
+  // Effect to ensure PDF loads at the correct page on mobile
+  useEffect(() => {
+    if (isMobile) {
+      const iframe = document.querySelector('iframe');
+      if (iframe) {
+        // Small delay to ensure the iframe is ready
+        setTimeout(() => {
+          iframe.src = `${pdfUrl}#page=${currentPage}`;
+        }, 100);
+      }
+    }
+  }, [currentPage, isMobile, pdfUrl]);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -65,45 +88,87 @@ const Resume = () => {
             </Button>
           </div>
 
+          {/* Move pagination above the PDF on mobile for better usability */}
+          {isMobile && (
+            <Pagination className="mb-4">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious 
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+                  />
+                </PaginationItem>
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <PaginationItem key={page}>
+                    <PaginationLink
+                      isActive={currentPage === page}
+                      onClick={() => handlePageChange(page)}
+                    >
+                      {page}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                
+                <PaginationItem>
+                  <PaginationNext 
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          )}
+
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8">
-            <ScrollArea className="w-full" style={{ height: "calc(100vh - 300px)" }}>
+            <ScrollArea className="w-full" style={{ height: isMobile ? "calc(100vh - 400px)" : "calc(100vh - 300px)" }}>
               <iframe 
                 src={`${pdfUrl}#page=${currentPage}`}
                 title="Ben Ruckman Resume"
                 className="w-full h-full"
-                style={{ border: 'none', minHeight: '80vh' }}
+                style={{ border: 'none', minHeight: isMobile ? '70vh' : '80vh' }}
               />
             </ScrollArea>
           </div>
 
-          <Pagination className="mb-8">
-            <PaginationContent>
-              <PaginationItem>
-                <PaginationPrevious 
-                  onClick={() => handlePageChange(currentPage - 1)}
-                  className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
-                />
-              </PaginationItem>
-              
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-                <PaginationItem key={page}>
-                  <PaginationLink
-                    isActive={currentPage === page}
-                    onClick={() => handlePageChange(page)}
-                  >
-                    {page}
-                  </PaginationLink>
+          {/* Keep pagination below the PDF on desktop */}
+          {!isMobile && (
+            <Pagination className="mb-8">
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious 
+                    onClick={() => handlePageChange(currentPage - 1)}
+                    className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+                  />
                 </PaginationItem>
-              ))}
-              
-              <PaginationItem>
-                <PaginationNext 
-                  onClick={() => handlePageChange(currentPage + 1)}
-                  className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
-                />
-              </PaginationItem>
-            </PaginationContent>
-          </Pagination>
+                
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                  <PaginationItem key={page}>
+                    <PaginationLink
+                      isActive={currentPage === page}
+                      onClick={() => handlePageChange(page)}
+                    >
+                      {page}
+                    </PaginationLink>
+                  </PaginationItem>
+                ))}
+                
+                <PaginationItem>
+                  <PaginationNext 
+                    onClick={() => handlePageChange(currentPage + 1)}
+                    className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+                  />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          )}
+
+          {/* Add a simple page indicator for mobile */}
+          {isMobile && (
+            <div className="text-center text-sm text-muted-foreground mb-8">
+              Page {currentPage} of {totalPages}
+            </div>
+          )}
         </div>
       </main>
       <Footer />

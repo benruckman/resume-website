@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Download, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -71,6 +70,12 @@ const Resume = () => {
     }
   }, [currentPage, pdfUrl]);
 
+  // Create a unique src for the iframe based on page to force reload
+  const getIframeSrc = () => {
+    // Add a timestamp to the src to force a reload
+    return `${pdfUrl}#page=${currentPage}&t=${Date.now()}`;
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
@@ -130,10 +135,11 @@ const Resume = () => {
 
           <div className="w-full border rounded-lg overflow-hidden shadow-lg bg-background mb-8">
             <ScrollArea className="w-full" style={{ height: isMobile ? "calc(100vh - 400px)" : "calc(100vh - 300px)" }}>
+              {/* Key prop forces React to recreate the iframe when currentPage changes */}
               <iframe 
-                ref={iframeRef}
-                src={`${pdfUrl}#page=${currentPage}`}
-                title="Ben Ruckman Resume"
+                key={`pdf-page-${currentPage}`}
+                src={getIframeSrc()}
+                title={`Ben Ruckman Resume - Page ${currentPage}`}
                 className="w-full h-full"
                 style={{ border: 'none', minHeight: isMobile ? '70vh' : '80vh' }}
               />

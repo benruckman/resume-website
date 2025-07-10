@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Briefcase, Building2, Calendar, MapPin } from 'lucide-react';
@@ -33,7 +34,7 @@ const Experience = () => {
       technologies: ["Java", "TypeScript", "React", "Spring Boot", "AWS", "Docker", "Kubernetes", "Jira", "CI/CD"]
     },
     {
-      company: "VELVETFS",
+      company: "VelvetFS",
       role: "Software Engineer",
       location: "Salt Lake City, UT (Hybrid)",
       period: "September 2021 – February 2024",
@@ -50,7 +51,7 @@ const Experience = () => {
       technologies: ["Python", "TypeScript", "Django REST Framework", "React", "AWS S3", "AWS Textract", "Azure OCR", "PostgreSQL", "Docker", "TDD"]
     },
     {
-      company: "MALLOW/WHELM",
+      company: "Mallow/Whelm",
       role: "Co-Founder (Part-Time)",
       location: "Remote",
       period: "June 2023 – Present",
@@ -80,7 +81,23 @@ const Experience = () => {
               <CardHeader className="space-y-1">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-2">
                   <div>
-                    <h3 className="text-2xl font-bold">{job.company}</h3>
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-2xl font-bold">{job.company}</h3>
+                      {job.company === "Mallow/Whelm" && (
+                        <a 
+                          href="https://getmallow.com" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          <Button 
+                            size="sm"
+                            className="bg-mallow-green hover:bg-mallow-green/90 text-white"
+                          >
+                            Ditch the 3% invoicing fees
+                          </Button>
+                        </a>
+                      )}
+                    </div>
                     <div className="text-lg font-semibold text-primary">{job.role}</div>
                   </div>
                   <div className="flex items-center text-sm text-muted-foreground">

@@ -40,9 +40,9 @@ const Skills = () => {
     // Tools & Methods (sorted by experience)
     { name: "Git/Github/Gitlab", years: 4, category: "tools" },
     { name: "VSCode", years: 4, category: "tools" },
-    { name: "Linear", years: 3, category: "tools" },
+    { name: "Linear.app", years: 3, category: "tools" },
+    { name: "REST APIs", years: 3, category: "tools" },
     { name: "Jira", years: 2, category: "tools" },
-    { name: "REST APIs", years: 2, category: "tools" },
     { name: "Agile", years: 2, category: "tools" },
   ];
 

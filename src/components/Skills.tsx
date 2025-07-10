@@ -12,42 +12,38 @@ interface Skill {
 const Skills = () => {
   // Find the maximum years to normalize progress bars
   const skills: Skill[] = [
-    // Programming Languages
-    { name: "TypeScript", years: 2, category: "languages" },
-    { name: "JavaScript", years: 3, category: "languages" },
-    { name: "Java", years: 2, category: "languages" },
-    { name: "Python", years: 1, category: "languages" },
-    { name: "C#", years: 3, category: "languages" },
-    { name: "C++", years: 1, category: "languages" },
-
-    // Frameworks & Libraries
-    { name: "React", years: 2, category: "frameworks" },
-    { name: "Spring Boot", years: 1, category: "frameworks" },
-    { name: "Django", years: 1, category: "frameworks" },
-    { name: "Linear.app", years: 2, category: "frameworks" },
+    // Programming Languages (sorted by experience)
     { name: "HTML", years: 4, category: "frameworks" },
     { name: "CSS", years: 4, category: "frameworks" },
-    { name: "NextJS", years: 1, category: "frameworks" },
     { name: "Bubble.io", years: 4, category: "frameworks" },
-
-    // Cloud & DevOps
+    { name: "JavaScript", years: 3, category: "languages" },
+    { name: "TypeScript", years: 3, category: "languages" },
+    { name: "React", years: 3, category: "frameworks" },
+    { name: "C#", years: 2, category: "languages" },
+    { name: "Java", years: 2, category: "languages" },
     { name: "AWS", years: 2, category: "cloud" },
-    { name: "Azure", years: 1, category: "cloud" },
     { name: "Docker", years: 2, category: "cloud" },
+    { name: "CI/CD", years: 2, category: "cloud" },
+    { name: "Python", years: 1, category: "languages" },
+    { name: "C++", years: 1, category: "languages" },
+    { name: "Spring Boot", years: 1, category: "frameworks" },
+    { name: "Django", years: 1, category: "frameworks" },
+    { name: "NextJS", years: 1, category: "frameworks" },
+    { name: "Azure", years: 1, category: "cloud" },
     { name: "Kubernetes", years: 1, category: "cloud" },
     { name: "Jenkins", years: 1, category: "cloud" },
-    { name: "CI/CD", years: 2, category: "cloud" },
 
-    // Databases
-    { name: "PostgreSQL", years: 2, category: "databases" },
+    // Databases (sorted by experience)
+    { name: "PostgreSQL", years: 3, category: "databases" },
     { name: "Relational Databases", years: 3, category: "databases" },
 
-    // Tools & Others
-    { name: "Git/GitHub", years: 3, category: "tools" },
+    // Tools & Methods (sorted by experience)
+    { name: "Git/Github/Gitlab", years: 4, category: "tools" },
+    { name: "VSCode", years: 4, category: "tools" },
+    { name: "Linear", years: 3, category: "tools" },
     { name: "Jira", years: 2, category: "tools" },
     { name: "REST APIs", years: 2, category: "tools" },
     { name: "Agile", years: 2, category: "tools" },
-    { name: "VSCode", years: 4, category: "tools" },
   ];
 
   // Find the maximum years to use as the 100% reference
@@ -79,6 +75,7 @@ const Skills = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-6">
                 {skills
                   .filter((skill) => skill.category === category.id)
+                  .sort((a, b) => b.years - a.years)
                   .map((skill) => (
                     <Card key={skill.name} className="overflow-hidden">
                       <CardContent className="p-4">

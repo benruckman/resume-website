@@ -87,7 +87,7 @@ const Skills = () => {
                         <div className="flex justify-between items-center mb-2">
                           <div className="font-medium">{skill.name}</div>
                           <div className="text-sm text-muted-foreground">
-                            {skill.years} {skill.years === 1 ? "Year" : "Years"}
+                            {skill.years} {skill.years === 1 ? "year" : "years"}
                           </div>
                         </div>
                         <Progress 

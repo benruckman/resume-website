@@ -17,10 +17,10 @@ const Hero = () => {
                 Full Stack Software Engineer
               </h2>
               <p className="text-muted-foreground text-lg max-w-2xl mt-2">
-                Experienced engineer with expertise in full-stack development,
+                Full Stack Software Engineer with 4 years of expertise in full-stack development,
                 AI-driven solutions, and scalable system design. Proven track
                 record in leading technical projects, mentoring teams, and
-                delivering tools that enhance operational efficiency.
+                delivering tools that enhance operational efficiency. Adept at leveraging OCR, generative AI, and cloud technologies to solve complex problems.
               </p>
               <p className="text-muted-foreground text-lg max-w-2xl mt-2">
                 Did I make this website with lovable.dev in 10 minutes? Yes. I

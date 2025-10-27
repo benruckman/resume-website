@@ -13,36 +13,41 @@ const Skills = () => {
   // Find the maximum years to normalize progress bars
   const skills: Skill[] = [
     // Programming Languages (sorted by experience)
+    { name: "TypeScript", years: 4, category: "languages" },
+    { name: "JavaScript", years: 4, category: "languages" },
+    { name: "Python", years: 3, category: "languages" },
+    { name: "C#", years: 3, category: "languages" },
+    { name: "Java", years: 2, category: "languages" },
+    { name: "C++", years: 1, category: "languages" },
+
+    // Frameworks & Libraries (sorted by experience)
+    { name: "React", years: 4, category: "frameworks" },
     { name: "HTML", years: 4, category: "frameworks" },
     { name: "CSS", years: 4, category: "frameworks" },
-    { name: "Bubble.io", years: 4, category: "frameworks" },
-    { name: "JavaScript", years: 3, category: "languages" },
-    { name: "TypeScript", years: 3, category: "languages" },
-    { name: "React", years: 3, category: "frameworks" },
-    { name: "C#", years: 2, category: "languages" },
-    { name: "Java", years: 2, category: "languages" },
-    { name: "AWS", years: 2, category: "cloud" },
-    { name: "Docker", years: 2, category: "cloud" },
-    { name: "CI/CD", years: 2, category: "cloud" },
-    { name: "Python", years: 1, category: "languages" },
-    { name: "C++", years: 1, category: "languages" },
+    { name: "Bubble.io", years: 3, category: "frameworks" },
+    { name: "NextJS", years: 2, category: "frameworks" },
+    { name: "Django", years: 2, category: "frameworks" },
     { name: "Spring Boot", years: 1, category: "frameworks" },
-    { name: "Django", years: 1, category: "frameworks" },
-    { name: "NextJS", years: 1, category: "frameworks" },
-    { name: "Azure", years: 1, category: "cloud" },
+
+    // Cloud & DevOps (sorted by experience)
+    { name: "Docker", years: 4, category: "cloud" },
+    { name: "CI/CD", years: 4, category: "cloud" },
+    { name: "AWS", years: 2, category: "cloud" },
     { name: "Kubernetes", years: 1, category: "cloud" },
     { name: "Jenkins", years: 1, category: "cloud" },
+    { name: "Azure", years: 1, category: "cloud" },
 
     // Databases (sorted by experience)
-    { name: "PostgreSQL", years: 3, category: "databases" },
-    { name: "Relational Databases", years: 3, category: "databases" },
+    { name: "Relational Databases", years: 4, category: "databases" },
+    { name: "PostgreSQL", years: 2, category: "databases" },
 
     // Tools & Methods (sorted by experience)
     { name: "Git/Github/Gitlab", years: 4, category: "tools" },
     { name: "VSCode", years: 4, category: "tools" },
+    { name: "REST APIs", years: 4, category: "tools" },
+    { name: "Jira", years: 3, category: "tools" },
     { name: "Linear.app", years: 3, category: "tools" },
-    { name: "REST APIs", years: 3, category: "tools" },
-    { name: "Jira", years: 2, category: "tools" },
+    { name: "Cypress", years: 2, category: "tools" },
     { name: "Agile", years: 2, category: "tools" },
   ];
 

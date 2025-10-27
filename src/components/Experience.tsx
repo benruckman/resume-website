@@ -35,7 +35,7 @@ const Experience = () => {
       role: "Software Engineer",
       location: "Layton, UT (Hybrid)",
       period: "February 2024 – July 2025",
-      duration: "1.5 Years",
+      duration: "1.5 years",
       description: [
         "Engineered full-stack web applications for aviation systems using Java, TypeScript, React, and Spring Boot, optimizing user experience and operational efficiency for pilots through Agile development and cross-functional collaboration.",
         "Developed a centralized knowledge repository to standardize backend development best practices, reducing onboarding time by 30% and enhancing DevOps workflows (CI/CD pipelines, Jenkins, Rancher).",
@@ -51,7 +51,7 @@ const Experience = () => {
       role: "Founding Software Engineer",
       location: "Salt Lake City, UT (Hybrid)",
       period: "September 2021 – February 2024",
-      duration: "2.5 Years",
+      duration: "2.5 years",
       description: [
         "Engineered full-stack web solutions, enhancing user experience by implementing and optimizing settings pages and interactive charting features using React (TypeScript) and Django REST Framework.",
         "Collaborated cross-functionally with software engineers to debug, troubleshoot, and improve feature implementations, adhering to Agile methodologies and SDLC best practices.",
@@ -68,7 +68,7 @@ const Experience = () => {
       role: "Co-Founder (Part-Time)",
       location: "Remote",
       period: "June 2023 – Present",
-      duration: "2+ Years",
+      duration: "2+ years",
       description: [
         "Co-founded B2B SaaS startup Mallow, leading end-to-end technical development including full-stack architecture design, scalable infrastructure, and SDLC management while partnering with a non-technical co-founder to align product vision with market needs.",
         "Orchestrated strategic pivot from Whelm to Mallow, leveraging data-driven insights to reposition the product, resulting in 200%+ user engagement growth and improved market fit.",
